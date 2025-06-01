@@ -259,4 +259,4 @@ Authorization: Bearer <paste-token-here>
 GET http://localhost:5000/api/users/me
 ```
 
-You’ll now see user details, points, badges, and streaks.
+You’ll now see user details, points, badges, and streaks 👍
