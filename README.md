@@ -10,6 +10,13 @@ Built for eco-conscious individuals and communities, the platform transforms cle
 Whether you're cleaning a beach, road, or park — TeamTrashTracker lets you visualize your impact and inspire others.
 
 ---
+## 🔗 Project Link
+
+🌍 **Live App**: [https://teamtrashtracker.netlify.app](https://teamtrashtracker.netlify.app)
+
+📦 **Frontend**: Deployed with [Netlify](https://www.netlify.com/)  
+🧠 **Backend**: Deployed with [Railway](https://railway.app/)
+---
 
 ## 🚀 Core Features
 
