@@ -10,10 +10,30 @@ const uploadRoutes = require('./routes/uploadRoutes');
 const leaderboardRoutes = require('./routes/leaderboardRoutes');
 
 const app = express();
-app.use(cors());
+
+// whitelisting only netlify domain for CORS
+const allowedOrigins = ['https://teamtrashtracker.netlify.app'];
+
+app.use(cors({
+    origin: function (origin, callback) 
+    {
+        // allowing requests with no origin (eg - mobile apps, curl, postman)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin)) 
+        {
+            return callback(null, true);
+        } 
+        else 
+        {
+            return callback(new Error('❌ CORS blocked: Origin not allowed'));
+        }
+    },
+    credentials: true
+}));
+
 app.use(express.json());
 
-// serve uploaded files (static)
+// serve uploaded static files
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // api routes
@@ -30,4 +50,3 @@ mongoose.connect(process.env.MONGO_URI)
 // server start
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
